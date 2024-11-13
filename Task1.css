@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url("Images/hotel.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+header {
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    padding: 80px 20px;
+    color: white;
+}
+
+header h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #388c12;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #d35400;
+}
+
+#menu {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: white;
+    background-color: rgba(255, 255, 255, 0.0);
+}
+
+.food-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    margin: 10px;
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(207, 61, 61);
+}
+
+.food-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.food-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(233, 78, 78, 0.8);
+    text-shadow: 2px 2px 4px rgba(86, 74, 74, 0.1);
+    font-weight: bold;
+}
