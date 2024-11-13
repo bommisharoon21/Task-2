@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Order Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        #order-form {
+            background-color: white;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <section id="order-form">
+        <h2>Place Your Order</h2>
+        <form id="foodOrderForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+            </div>
+    
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+            </div>
+    
+            <div class="form-group">
+                <label for="food-item">Select Food Item:</label>
+                <select id="food-item" name="food-item" required>
+                    <option value="">Select...</option>
+                    <option value="Classic Margherita Pizza">Classic Margherita Pizza</option>
+                    <option value="Juicy Chicken Burger">Juicy Chicken Burger</option>
+                    <option value="Creamy Alfredo Pasta">Creamy Alfredo Pasta</option>
+                </select><br><br>
+            </div>
+    
+            <button type="submit">Submit Order</button>
+        </form>
+        <p id="form-message" class="message"></p>
+    </section>
+
+    <script>
+        document.getElementById("foodOrderForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form from submitting the traditional way
+
+            // Get form inputs
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const foodItem = document.getElementById("food-item").value;
+            const formMessage = document.getElementById("form-message");
+
+            // Reset any previous messages
+            formMessage.textContent = "";
+            formMessage.classList.remove("success", "error");
+
+            // Basic validation for email and food item selection
+            if (!name || !email || !foodItem) {
+                formMessage.textContent = "Please fill in all fields!";
+                formMessage.classList.add("error");
+                return;
+            }
+
+            // Simple email validation regex
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                formMessage.textContent = "Please enter a valid email address.";
+                formMessage.classList.add("error");
+                return;
+            }
+
+            // Simulate form submission (e.g., show success message)
+            formMessage.textContent = `Thank you, ${name}! Your order for ${foodItem} has been received.`;
+            formMessage.classList.add("success");
+
+            // Reset form after 3 seconds (optional)
+            setTimeout(function() {
+                document.getElementById("foodOrderForm").reset();
+                formMessage.textContent = "";
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
